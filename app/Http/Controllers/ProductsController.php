@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Models\Product;
+use App\Models\User;
 
 class ProductsController extends Controller
 {
@@ -18,6 +19,19 @@ class ProductsController extends Controller
 
     public function index(){
         return view('products.index',[
+            'products' => \App\Models\Product::all(),
+    ]);
+    }
+
+    public function adminShow($id){
+        return view('products.adminshow', [
+            'products' => \App\Models\Product::find($id),
+            'users' => \App\Models\User::all(),
+        ]);
+    }
+
+    public function adminIndex(){
+        return view('products.admin',[
             'products' => \App\Models\Product::all(),
     ]);
     }
@@ -39,6 +53,26 @@ class ProductsController extends Controller
             'allproducts' => \App\Models\Product::all(),
     ]);
     }
+
+    public function adminUserProfile($id){
+        return view('products.adminprofile',[
+            'users' => \App\Models\User::find($id),
+            'products' => \App\Models\Product::find($id),
+            'allproducts' => \App\Models\Product::all(),
+    ]);
+    }   
+    
+    
+    public function delete($id){
+        $product = Product::find($id);
+        $product->delete();
+
+        return redirect('admin/');
+    }
+    
+
+
+
 
     //Product create functies
 
@@ -144,6 +178,23 @@ class ProductsController extends Controller
 
         }
     }
+
+    
+    public function deleteUser($id){
+        $user = User::find($id);
+        $products = Product::all();
+        if($user->role == "Gast"){
+            foreach($products as $pro){
+                if($pro->user_id == $user->id){
+                    $pro->lenen = "terugkerend";
+                    $user->role = "Blocked";
+
+                    if ($user->save()) {
+                        $pro->save();
+                }
+        }}}
+    }
+
 
 
 

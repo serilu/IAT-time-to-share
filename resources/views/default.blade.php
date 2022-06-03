@@ -9,8 +9,14 @@
     
     <title>@yield('title')</title>
 </head>
+<header>
+@if(Auth::user()->role == 'Admin')
+    @include('products.components.adminnav')
+@else
+    @include('products.components.navbar')
+@endif
+</header>
 
-@include('products.components.navbar')
 
 <body>
     @yield('content')

@@ -36,6 +36,22 @@ class ProductTableSeeder extends Seeder
             'categorie' => "Anime",
             'Description' => "Mommy",
         ]);
+
+        DB::table('products')->insert([
+            'name' => "Pokemon Home",
+            'user_id' => 2,
+            'image' => "/image/bark.jpg",
+            'categorie' => "Gaming",
+            'Description' => "Pokemon gamers",
+        ]);
+
+        DB::table('products')->insert([
+            'name' => "Pokemon Giratina",
+            'user_id' => 2,
+            'image' => "/image/arf.png",
+            'categorie' => "Gaming",
+            'Description' => "Pokemonnnnnnn",
+        ]);
         
     }
 }

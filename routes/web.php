@@ -14,8 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'admin' ])->group(function () {
+    Route::get('/admin', [\App\Http\Controllers\ProductsController::class, 'adminIndex']);
+    Route::get('/admin/{id}', [\App\Http\Controllers\ProductsController::class, 'adminShow']);
+    Route::put('/admin/{id}',[\App\Http\Controllers\ProductsController::class, 'delete']);
+    
+    Route::get('/admin/profile/{id}',[\App\Http\Controllers\ProductsController::class, 'adminUserProfile']);
+    Route::put('/admin/profile/{id}',[\App\Http\Controllers\ProductsController::class, 'deleteUser']);
 
+});
+
+Route::middleware(['auth','notblocked'])->group(function () {
     Route::get('/profile', [\App\Http\Controllers\ProductsController::class, 'Authprofile']);
     Route::get('/profile/{id}', [\App\Http\Controllers\ProductsController::class, 'profile']);
     
@@ -30,17 +39,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/products/{productId}', [\App\Http\Controllers\ProductsController::class, 'show']);
     Route::put('/products/{id}', [\App\Http\Controllers\ProductsController::class, 'lening']);
     Route::get('/', [\App\Http\Controllers\ProductsController::class, 'index']);
-
-
-
-
-
-
-
-    
-
-
 });
+
 
 
 Route::get('/dashboard', function () {
