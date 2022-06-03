@@ -4,7 +4,7 @@
         </figure>
 
         <section class="productCard__text">
-        <a class="productCard__user__name" href="/profile/{{$users[$products->user_id -1]->id}}"> By {{$users[$products->user_id - 1]-> name}} </a>
+        <a class="productCard__user__name" href="/admin/profile/{{$users[$products->user_id -1]->id}}"> By {{$users[$products->user_id - 1]-> name}} </a>
            <p class="productCard__description"> {{$products->description}}</p>
         </section>
 

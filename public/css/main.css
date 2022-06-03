@@ -307,6 +307,17 @@ body{
     transition:0.2s all;
 }
 
+.adminCard__verwijder{
+    padding:2rem 4rem;
+    box-sizing:border-box;
+    background-color:#9f0707;
+    border:none;
+    color:#eeeeee;
+    box-shadow:0 0.5rem 4rem rgba(7, 104, 159, 0.7);
+    transition:0.2s all;
+    margin:0 auto;
+}
+
 button:hover{
     cursor: pointer;
 }

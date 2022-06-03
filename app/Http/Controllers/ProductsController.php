@@ -97,6 +97,7 @@ class ProductsController extends Controller
         $products->categorie = $request->input('categorie');
         $products->description = $request->input('description');
         $products->image = "/image/" . $newImageName;
+        $products->uitleenTijd = $request->input("leentijd");
     
         try{
             $products->save();

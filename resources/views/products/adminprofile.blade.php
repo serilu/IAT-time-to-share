@@ -11,7 +11,7 @@
     @csrf
     @method("PUT")
 
-    <button type="submit" name="verwijder" class="productCard__verwijder">Delete user</button>
+    <button type="submit" name="verwijder" class="adminCard__verwijder">Delete user</button>
             
 </form>
 
