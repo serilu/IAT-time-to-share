@@ -1,6 +1,7 @@
 @extends('default')
 
 @section('title')
+Admin
 @endsection
 
 @section('content')

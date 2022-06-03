@@ -1,6 +1,7 @@
 @extends('default')
 
 @section('title')
+Profile
 @endsection
 
 @section('content')

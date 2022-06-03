@@ -1,7 +1,7 @@
 @extends('default')
 
 @section('title')
-CREER SAJKFASF A NIFFO MAN BORRO
+Create Product
 @endsection
 
 @section('content')

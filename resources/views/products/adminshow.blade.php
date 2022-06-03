@@ -1,7 +1,7 @@
 @extends('default')
 
 @section('title')
- {{$products->categorie . " " . $products->name}}
+ Admin {{$products->categorie . " " . $products->name}}
 @endsection
 
 @section('content')
